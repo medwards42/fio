@@ -1,9 +1,17 @@
 # fio - File Input Output Generator (Work in progress - adapted from sbrd.me)
 
 ## Dependencies
-* You will need to setup an rvm environment running ruby-1.9.3-p194.
+* You will need to setup an rvm environment running ruby-2.0.0-p247.
   * You will also need to create a gemset called `fio`
-    * note: make sure you remember to issue `rvm use ruby-1.9.3-p194@fio` from the command line.
+    * note: make sure you remember to issue `rvm use ruby-2.0.0-p247@fio --create` from the command line.
+    * remember to create a .ruby-version and .ruby-gemset file:
+      
+      .ruby-version:
+        `ruby-2.0.0-p247`
+      
+      .ruby-gemset:
+        `fio`
+    
   
 ## Setup 
 1. Install the dependencies
