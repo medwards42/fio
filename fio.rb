@@ -22,7 +22,11 @@ end
 
 get '/' do 
   status 200
-  File.read('/Users/medwards/data.out')
+  
+  @title = "fio - Speed Dial"
+  @f = JSON.parse(File.read("./public/directory.json"))
+
+  erb :index
 end
 
 class Stream

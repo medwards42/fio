@@ -1,0 +1,50 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Polycom Speed Dial Editor</a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Speed Dial Listing</h1>
+        <p class="lead">Listing for Extension <span class="label label-success"><%= @f["extension"] %></span></p>
+      </div>
+      
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Entries...</div>
+
+        <!-- Table -->
+        <table class="table">
+          <tr>
+            <th>Index</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Contact Number</th>
+          </tr>
+          <tr>
+            <td><%= @f["items"][0]["sd"] %></td>
+            <td><%= @f["items"][0]["ln"] %></td>
+            <td><%= @f["items"][0]["fn"] %></td>
+            <td><%= @f["items"][1]["ct"] %></td>
+          </tr>
+        </table>
+      </div>
+      
+
+    </div><!-- /.container -->
+
+  

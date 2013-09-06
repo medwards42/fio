@@ -1,0 +1,19 @@
+{
+    "extension" : "2505",
+    "category": "Directory",
+    "list": "item_list",
+    "items": [
+        {
+            "ln": "Edwards",
+            "fn": "Mike",
+            "ct": "4155551212",
+            "sd": "1"
+        },
+        {
+            "ln": "Doe",
+            "fn": "John",
+            "ct": "3105551212",
+            "sd": "2"
+        }
+    ]
+}
