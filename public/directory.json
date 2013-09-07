@@ -1,19 +1,42 @@
 {
-    "extension" : "2505",
     "category": "Directory",
     "list": "item_list",
-    "items": [
+    "extensions": [
         {
-            "ln": "Edwards",
-            "fn": "Mike",
-            "ct": "4155551212",
-            "sd": "1"
+            "dn": "2505",
+            "mac": "000000000001",
+            "items": [
+                {
+                    "ln": "Edwards",
+                    "fn": "Mike",
+                    "ct": "4155551212",
+                    "sd": "1"
+                },
+                {
+                    "ln": "Doe",
+                    "fn": "John",
+                    "ct": "3105551212",
+                    "sd": "2"
+                }
+            ]
         },
         {
-            "ln": "Doe",
-            "fn": "John",
-            "ct": "3105551212",
-            "sd": "2"
+            "dn": "2522",
+            "mac": "000000000002",
+            "items": [
+                {
+                    "ln": "Edwards",
+                    "fn": "Jon",
+                    "ct": "5105551212",
+                    "sd": "1"
+                },
+                {
+                    "ln": "Doe",
+                    "fn": "Jane",
+                    "ct": "2135551212",
+                    "sd": "2"
+                }
+            ]
         }
     ]
 }

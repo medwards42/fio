@@ -20,7 +20,7 @@
 
       <div class="starter-template">
         <h1>Speed Dial Editor</h1>
-        <p class="lead">Listing for Extension <span class="label label-success"><%= @f[:extensions][0][:dn] %></span></p>
+        <p class="lead">Listing for Extension <span class="label label-success"><%= @f[:dn] %></span></p>
       </div>
       
       <div class="panel panel-default">
@@ -35,7 +35,7 @@
             <th>First Name</th>
             <th>Contact Number</th>
           </tr>
-          <% @f[:extensions][0][:items].each do |i|  %>
+          <% @f[:items].each do |i|  %>
             <tr>
               <td><%= i[:sd] %></td>
               <td><%= i[:ln] %></td>
@@ -49,4 +49,3 @@
 
     </div><!-- /.container -->
 
-  

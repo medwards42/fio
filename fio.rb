@@ -24,17 +24,28 @@ get '/' do
   status 200
   
   @title = "fio - Speed Dial"
-  @f = JSON.parse(File.read("./public/directory.json"))
-
-  erb :index
+  @f = JSON.parse(File.read("./public/directory.json"), :symbolize_names => true)
+  "#{@f.to_json}"
+  #erb :index
 end
 
-class Stream
-  def each
-    100.times { |i| yield "#{i}\n" }
+get '/:ext' do 
+  status 200
+  
+  @title = "fio - Speed Dial"
+  @f = JSON.parse(File.read("./public/directory.json"), :symbolize_names => true)
+  @ext = params[:ext].to_s
+  @f = @f[:extensions].find { |e| e[:dn] == @ext }
+  if @f == nil 
+   status 500 
+   body "Extension does not exist."
+  else
+    "#{@f.to_json}"
   end
+  
+
+  #erb :extension
 end
 
-get '/st' do
-  Stream.new
-end
+
+
