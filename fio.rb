@@ -20,9 +20,14 @@ not_found do
   'These are not the droids you\'re looking for.'
 end
 
+get '/health_check' do
+  status 200
+  "All Systems Go!"
+end
+
 get '/' do 
   status 200
-  
+  content_type :json
   @title = "fio - Speed Dial"
   @f = JSON.parse(File.read("./public/directory.json"), :symbolize_names => true)
   "#{@f.to_json}"
