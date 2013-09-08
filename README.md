@@ -88,7 +88,7 @@ Admin side I can tell you that it makes writing Nagios checks a whole lot nicer.
 Really all this tells us is that the server is up and running and that a user is able to connect
 and Sinatra will correctly respond to a get request on the '/health_check' route. 
 
-##### API Endpoints
+#### API Endpoints
 
   * Staging - http://
   
