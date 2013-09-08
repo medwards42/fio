@@ -2,6 +2,9 @@
 
 #require_relative 'lib/url.rb'
 
+# Define Constants
+  DirectoryFile = "./public/directory.json"
+
 configure :test do
   
 end
@@ -25,7 +28,14 @@ end
 
 get '/health_check' do
   status 200
-  "All Systems Go!"
+  begin
+    @file = JSON.parse(File.read(DirectoryFile))
+    "All Systems Go!"
+  rescue Exception => e
+    raise "Directory File Not Found!"
+  end
+  
+  
 end
 
 get '/' do 
@@ -36,7 +46,7 @@ get '/:ext' do
   status 200
   content_type :json
   @title = "fio - Speed Dial"
-  @f = JSON.parse(File.read("./public/directory.json"), :symbolize_names => true)
+  @f = JSON.parse(File.read(DirectoryFile), :symbolize_names => true)
   @ext = params[:ext].to_s
   @f = @f[:extensions].find { |e| e[:dn] == @ext }
   if @f == nil 
