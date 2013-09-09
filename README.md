@@ -86,8 +86,8 @@ Admin side I can tell you that it makes writing Nagios checks a whole lot nicer.
     * Connection #0 to host localhost left intact
     All Systems Go!* Closing connection #0
     
-Really all this tells us is that the server is up and running and that a user is able to connect
-and Sinatra will correctly respond to a get request on the '/health_check' route. 
+"All Systems Go!" means exactly that.  The health_check shows an API consumer that the service is online
+and responding to requests correctly.
 
 #### API Endpoints
 

@@ -1,6 +1,4 @@
-%w(sinatra json).each  { |lib| require lib}
-
-#require_relative 'lib/url.rb'
+%w(sinatra json builder).each  { |lib| require lib}
 
 # Define Constants
   DirectoryFile = "./public/directory.json"
@@ -39,26 +37,32 @@ get '/health_check' do
 end
 
 get '/' do 
-  params.empty? ? raise(Sinatra::NotFound) : raise(Sinatra::NotFound)
+  raise(Sinatra::NotFound)  if params.empty? 
 end
 
 get '/:ext' do 
   status 200
   content_type :json
-  @title = "fio - Speed Dial"
-  @f = JSON.parse(File.read(DirectoryFile), :symbolize_names => true)
   @ext = params[:ext].to_s
-  @f = @f[:extensions].find { |e| e[:dn] == @ext }
-  if @f == nil 
+  @file = JSON.parse(File.read(DirectoryFile), :symbolize_names => true)[:extensions].find { |e| e[:dn] == @ext }
+  if @file == nil 
    status 500 
    body "Extension does not exist."
   else
-    "#{@f.to_json}"
+    "#{@file.to_json}"
   end
-  
-
-  #erb :extension
 end
 
-
+get '/:ext/xml' do 
+  status 200
+  content_type :xml
+  @ext = params[:ext].to_s
+  @file = JSON.parse(File.read(DirectoryFile), :symbolize_names => true)[:extensions].find { |e| e[:dn] == @ext }
+  if @file == nil 
+   status 500 
+   body "Extension does not exist."
+  else
+    "#{@file.to_xml}"
+  end
+end
 
