@@ -1,11 +1,10 @@
 {
     "category": "Directory",
-    "list": "item_list",
     "extensions": [
         {
             "dn": "2505",
             "mac": "000000000001",
-            "items": [
+            "item_list": [
                 {
                     "ln": "Edwards",
                     "fn": "Mike",
@@ -23,7 +22,7 @@
         {
             "dn": "2522",
             "mac": "000000000002",
-            "items": [
+            "item_list": [
                 {
                     "ln": "Edwards",
                     "fn": "Jon",

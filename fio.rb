@@ -40,29 +40,22 @@ get '/' do
   raise(Sinatra::NotFound)  if params.empty? 
 end
 
-get '/:ext' do 
+get '/*-directory.*' do
   status 200
-  content_type :json
-  @ext = params[:ext].to_s
-  @file = JSON.parse(File.read(DirectoryFile), :symbolize_names => true)[:extensions].find { |e| e[:dn] == @ext }
+  @mac = params[:splat][0].to_s
+  @fileExtension = params[:splat][1].to_s
+  @file = JSON.parse(File.read(DirectoryFile), :symbolize_names => true)[:extensions].find { |e| e[:mac] == @mac }
   if @file == nil 
    status 500 
    body "Extension does not exist."
   else
-    "#{@file.to_json}"
+    case @fileExtension
+    when "xml"
+      content_type :xml
+      "#{@file.to_xml(:root => "Directory", :children => "items", :skip_types => true, :dasherize => false)}"
+    when "json"
+      content_type :json
+      "#{@file.to_json}"
+    end
   end
 end
-
-get '/:ext/xml' do 
-  status 200
-  content_type :xml
-  @ext = params[:ext].to_s
-  @file = JSON.parse(File.read(DirectoryFile), :symbolize_names => true)[:extensions].find { |e| e[:dn] == @ext }
-  if @file == nil 
-   status 500 
-   body "Extension does not exist."
-  else
-    "#{@file.to_xml(:root => "Directory")}"
-  end
-end
-
