@@ -1,4 +1,4 @@
-%w(sinatra json builder).each  { |lib| require lib}
+%w(sinatra json builder active_support/core_ext).each  { |lib| require lib}
 
 # Define Constants
   DirectoryFile = "./public/directory.json"
@@ -62,7 +62,7 @@ get '/:ext/xml' do
    status 500 
    body "Extension does not exist."
   else
-    "#{@file.to_xml}"
+    "#{@file.to_xml(:root => "Directory")}"
   end
 end
 
